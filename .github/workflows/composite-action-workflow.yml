@@ -13,7 +13,7 @@ jobs:
           list-files: 'shell'
           filters: |
             app-change:
-              -'*.md'
+              - '*.md'
       - name: Run action
         if: ${{ steps.changes.outputs.app-change == 'true' }}
         uses: jtenholder/ghaa_01_04_composite_action@main
