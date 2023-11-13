@@ -6,9 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # REPLACE THE FOLLOWING WITH THE PROPER VALUES
-      # - YOUR_GITHUB_USER_NAME
-      # - YOUR_COMPOSITE_ACTION_REPO_NAME
-      - uses: jtenholder/ghaa_01_04_composite_action@main
+      - uses: actions/checkout@v3
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          list-files: 'shell'
+          filters: |
+            app-change:
+              - '*.md'
+      - name: Run action
+        if: ${{ steps.changes.outputs.app-change == 'true' }}
+        uses: jtenholder/ghaa_01_04_composite_action@main
         with:
           PYTHON_VERSION: 3.8

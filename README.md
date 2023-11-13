@@ -22,3 +22,6 @@ Use these files to test a composite action.
 1. Upload the file `composite-action-workflow.yml` into the `.github/workflows` directory of the composite action repo.
 1. Once the workflow file is commited, the workflow should be triggered by a `push` event.
 1. Confirm the workflow runs as expected and includes output from the composite action.
+
+## Testing
+I'm changing this file for testing purposes.
